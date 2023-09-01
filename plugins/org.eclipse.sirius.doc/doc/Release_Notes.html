@@ -164,6 +164,16 @@
 			<code>org.eclipse.sirius.diagram.ui</code>
 		</h4>
 		<ul>
+			<li><span class="label label-success">Added</span> The constant 
+				<code>org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager.KEEP_FIXED</code> has been added to tag elements to be laid out and indicate that their location should not be modified.
+			</li>
+			<li><span class="label label-success">Added</span> Method 
+				<code>org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager.getArrangeCreatedViewsCommand(List&lt;IAdaptable&gt;, List&lt;IAdaptable&gt;, IGraphicalEditPart, String)</code> has been added to handle the new 
+				<code>KEEP_FIXED</code> layout tag. There are now 3 types of tags that can be used for layout: 
+				<code>org.eclipse.gmf.runtime.diagram.ui.services.layout.LayoutType.DEFAULT</code>, 
+				<code>org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager.LAYOUT_TYPE_ARRANGE_AT_OPENING</code> and 
+				<code>org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager.KEEP_FIXED</code>.
+			</li>
 			<li><span class="label label-info">Modified</span> The methods 
 				<code>org.eclipse.sirius.diagram.ui.tools.api.util.GMFNotationHelper.getNotes(Diagram)</code> and 
 				<code>org.eclipse.sirius.diagram.ui.tools.api.util.GMFNotationHelper.getTextNotes(Diagram)</code> now return a list of 

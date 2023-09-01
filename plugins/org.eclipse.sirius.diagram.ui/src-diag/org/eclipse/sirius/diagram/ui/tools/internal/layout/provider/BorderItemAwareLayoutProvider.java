@@ -82,6 +82,7 @@ import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.model.business.internal.query.DNodeContainerExperimentalQuery;
 import org.eclipse.sirius.diagram.tools.api.layout.PinHelper;
+import org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramBorderNodeEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramNameEditPart;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDDiagramEditPart;
@@ -517,6 +518,9 @@ public class BorderItemAwareLayoutProvider extends AbstractLayoutProvider {
         if (layoutHint.getAdapter(Collection.class) instanceof ArrayList<?>
                 && Iterables.all((ArrayList<?>) layoutHint.getAdapter(Collection.class), validateAllElementInArrayListAreIDiagramElementEditPart)) {
             elementsToKeepFixed = (ArrayList<IDiagramElementEditPart>) layoutHint.getAdapter(Collection.class);
+        }
+        if (SiriusLayoutDataManager.KEEP_FIXED.equals(layoutHint.getAdapter(String.class))) {
+            elementsToKeepFixed.addAll(selectedObjects);
         }
 
         // Create the specific command to layout the border items.
